@@ -10,6 +10,7 @@ import java.awt.Image;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class StartaMenu extends JFrame {
 
@@ -52,9 +53,15 @@ public class StartaMenu extends JFrame {
 		VardaTextbox.setColumns(10);
 		
 		JButton SaktButton = new JButton("Sākt testu");
+		SaktButton.setBackground(new Color(255, 255, 255));
 		SaktButton.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		SaktButton.setBounds(269, 224, 100, 40);
 		contentPane.add(SaktButton);
+		
+		JLabel lblAdriansilders = new JLabel("Adrians Šilders");
+		lblAdriansilders.setFont(new Font("Segoe UI", Font.ITALIC, 16));
+		lblAdriansilders.setBounds(522, 377, 102, 23);
+		contentPane.add(lblAdriansilders);
 		
 		JLabel Background = new JLabel("");
 		Image BackImage = new ImageIcon(this.getClass().getResource("/resources/background.png")).getImage();
