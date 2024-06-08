@@ -25,7 +25,7 @@ public class Tests {
 	public String[] jautVar() {
 		return jautVar;
 	}
-	
+		
 	public String[] pareizAtb() {
 		return pareizAtb;
 	}
