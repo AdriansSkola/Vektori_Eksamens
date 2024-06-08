@@ -130,10 +130,18 @@ public class JautMenu extends JFrame {
 		btnIesniegt.setBounds(512, 349, 100, 40);
 		contentPane.add(btnIesniegt);
 		
-		JButton notiritBox = new JButton("Atķeksēt visus");
+		JButton notiritBox = new JButton("Notīrīt Atķeksētos");
+		notiritBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				atbVar1.setSelected(false);
+				atbVar2.setSelected(false);
+				atbVar3.setSelected(false);
+				atbVar4.setSelected(false);
+			}
+		});
 		notiritBox.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		notiritBox.setBackground(Color.WHITE);
-		notiritBox.setBounds(25, 349, 127, 40);
+		notiritBox.setBounds(25, 349, 158, 40);
 		contentPane.add(notiritBox);
 		
 		JLabel background = new JLabel("");
