@@ -33,6 +33,15 @@ public class JautMenu extends JFrame {
     private JCheckBox atbVar3;
     private JCheckBox atbVar4;
     private JLabel NepareiziLabel;
+    private JLabel background;
+    
+    private JButton btnIesniegt;
+    private JButton notiritBox;
+    
+    private JLabel pareizieLabel;
+    private JLabel SkLabel;
+    private JLabel VirsrakstsLabel;
+    private JLabel Emoji;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -106,7 +115,7 @@ public class JautMenu extends JFrame {
 		lblNewLabel.setBounds(291, 126, 225, 185);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnIesniegt = new JButton("Iesniegt");
+		btnIesniegt = new JButton("Iesniegt");
 		btnIesniegt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				parAtb();
@@ -117,7 +126,7 @@ public class JautMenu extends JFrame {
 		btnIesniegt.setBounds(512, 349, 100, 40);
 		contentPane.add(btnIesniegt);
 		
-		JButton notiritBox = new JButton("Notīrīt Atķeksētos");
+		notiritBox = new JButton("Notīrīt Atķeksētos");
 		notiritBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				atbVar1.setSelected(false);
@@ -130,7 +139,6 @@ public class JautMenu extends JFrame {
 		notiritBox.setBackground(Color.WHITE);
 		notiritBox.setBounds(25, 349, 158, 40);
 		contentPane.add(notiritBox);
-		Image BackImage2 = new ImageIcon(this.getClass().getResource("/resources/background2.png")).getImage();
 		
 		NepareiziLabel = new JLabel("Nepareizi! Mēģiniet vēlreiz!");
 		NepareiziLabel.setForeground(new Color(255, 0, 0));
@@ -140,8 +148,39 @@ public class JautMenu extends JFrame {
 		NepareiziLabel.setVisible(false);
 		contentPane.add(NepareiziLabel);
 		
-		JLabel background = new JLabel("");
+		
+		// Pārvēršu JautMenu uz Rezultati
+		
+		VirsrakstsLabel = new JLabel("Paldies _!");
+		VirsrakstsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		VirsrakstsLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
+		VirsrakstsLabel.setBounds(211, 11, 217, 43);
+		VirsrakstsLabel.setVisible(false);
+		contentPane.add(VirsrakstsLabel);
+		
+		SkLabel = new JLabel("Jautājumu skaits, kurus Jūs atbildējāt ar pirmo mēģinājumu:");
+		SkLabel.setForeground(new Color(20, 20, 20));
+		SkLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		SkLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		SkLabel.setBounds(67, 54, 491, 43);
+		SkLabel.setVisible(false);
+		contentPane.add(SkLabel);
+		
+		pareizieLabel = new JLabel("_/ 10");
+		pareizieLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		pareizieLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
+		pareizieLabel.setBounds(67, 97, 491, 43);
+		pareizieLabel.setVisible(false);
+		contentPane.add(pareizieLabel);
+		
+		Emoji = new JLabel("");
+		Emoji.setBounds(193, 144, 256, 256);
+		Emoji.setVisible(false);
+		contentPane.add(Emoji);
+		
+		background = new JLabel("");
 		background.setBounds(0, 0, 634, 411);
+		Image BackImage2 = new ImageIcon(this.getClass().getResource("/resources/background2.png")).getImage();
 		background.setIcon(new ImageIcon(BackImage2));
 		contentPane.add(background);
 		
@@ -200,6 +239,27 @@ public class JautMenu extends JFrame {
             } else {
                 //System.out.println("Jautājumi ir beigušies!");
             	System.out.println("Pareizi ar pirmo reizi atbildētie jautājumi: " + PareiziArPirmo);
+            	pareizieLabel.setText(PareiziArPirmo + " / 10");
+            	
+            	//JautMenu
+            	JautLabel.setVisible(false);
+            	atbVar1.setVisible(false);
+            	atbVar2.setVisible(false);
+            	atbVar3.setVisible(false);
+            	atbVar4.setVisible(false);
+            	JautSkLabel.setVisible(false);
+            	NepareiziLabel.setVisible(false);
+            	btnIesniegt.setVisible(false);
+            	notiritBox.setVisible(false);
+            	
+            	// Rezultati
+            	pareizieLabel.setVisible(true);
+            	VirsrakstsLabel.setVisible(true);
+            	SkLabel.setVisible(true);
+            	Emoji.setVisible(true);
+            	Image BackImage2 = new ImageIcon(this.getClass().getResource("/resources/background3.png")).getImage();
+            	background.setIcon(new ImageIcon(BackImage2));
+            	
             }
         } else {
         	NepareizArPirmo.set(jautIndex, NepareizArPirmo.get(jautIndex) + 1);
