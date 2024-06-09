@@ -24,6 +24,7 @@ public class JautMenu extends JFrame {
     private Vector<Vector<String>> atbildes = new Vector<Vector<String>>();
     private Vector<Vector<String>> pareizasAtb = new Vector<Vector<String>>();
     
+    private JLabel JautSkLabel;
     private JLabel JautLabel;
     private JCheckBox atbVar1;
     private JCheckBox atbVar2;
@@ -60,7 +61,7 @@ public class JautMenu extends JFrame {
 		atbildes = Tests.getAtbildes();
 		pareizasAtb = Tests.getPareizasAtb();
         
-		JLabel JautSkLabel = new JLabel("_. Jautājums");
+		JautSkLabel = new JLabel("_. Jautājums");
 		JautSkLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		JautSkLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
 		JautSkLabel.setBounds(492, 20, 120, 23);
@@ -135,6 +136,7 @@ public class JautMenu extends JFrame {
 	
 	private void raditJaut() {
         if (jautIndex < jautajumi.size()) {
+        	JautSkLabel.setText((jautIndex + 1) + ". Jautājums");
             JautLabel.setText(jautajumi.get(jautIndex));
             Vector<String> atbildesJaut = atbildes.get(jautIndex);
             if (atbildesJaut.size() == 4) {
