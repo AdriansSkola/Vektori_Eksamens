@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class StartaMenu extends JFrame {
 
@@ -44,12 +45,12 @@ public class StartaMenu extends JFrame {
 		setResizable(false);
 		
 		JLabel VirsrakstsLabel = new JLabel("Tests par vektoriem");
+		VirsrakstsLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		VirsrakstsLabel.setFont(new Font("Segoe UI", Font.BOLD, 22));
 		VirsrakstsLabel.setBounds(211, 32, 217, 23);
 		contentPane.add(VirsrakstsLabel);
 		
 		VardaTextbox = new JTextField();
-		VardaTextbox.setText("Ierakstiet savu vārdu...");
 		VardaTextbox.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		VardaTextbox.setBounds(236, 191, 164, 20);
 		contentPane.add(VardaTextbox);
@@ -58,9 +59,14 @@ public class StartaMenu extends JFrame {
 		JButton SaktButton = new JButton("Sākt testu");
 		SaktButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JautMenu sakumaFrame = new JautMenu();
-				sakumaFrame.setVisible(true); 
-				StartaMenu.this.dispose();
+				
+				if(VardaTextbox.getText().length() >=3 && VardaTextbox.getText().length() <= 16) {
+					JautMenu sakumaFrame = new JautMenu();
+					sakumaFrame.setVisible(true); 
+					StartaMenu.this.dispose();
+				} else {
+					System.out.println("Ievadītais vārds ir pārāk īss vai garšs!");
+				}
 			}
 		});
 		SaktButton.setBackground(new Color(255, 255, 255));
@@ -72,9 +78,15 @@ public class StartaMenu extends JFrame {
 		lblAdriansilders.setFont(new Font("Segoe UI", Font.ITALIC, 16));
 		lblAdriansilders.setBounds(522, 377, 102, 23);
 		contentPane.add(lblAdriansilders);
+		Image BackImage = new ImageIcon(this.getClass().getResource("/resources/background.png")).getImage();
+		
+		JLabel lblIerakstietSavuVrdu = new JLabel("Ierakstiet savu vārdu");
+		lblIerakstietSavuVrdu.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIerakstietSavuVrdu.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 14));
+		lblIerakstietSavuVrdu.setBounds(211, 158, 217, 23);
+		contentPane.add(lblIerakstietSavuVrdu);
 		
 		JLabel Background = new JLabel("");
-		Image BackImage = new ImageIcon(this.getClass().getResource("/resources/background.png")).getImage();
 		Background.setIcon(new ImageIcon(BackImage));
 		Background.setBounds(0, 0, 634, 411);
 		contentPane.add(Background);
