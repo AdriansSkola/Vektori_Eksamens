@@ -39,6 +39,7 @@ public class StartaMenu extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
 		
 		JLabel VirsrakstsLabel = new JLabel("Tests par vektoriem");
 		VirsrakstsLabel.setFont(new Font("Segoe UI", Font.BOLD, 22));

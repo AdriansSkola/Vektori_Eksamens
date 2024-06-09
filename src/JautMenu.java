@@ -52,31 +52,32 @@ public class JautMenu extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
         
 		
-        jautajumi.add("ac 1. jautajums");
+        jautajumi.add("Atzīmē Latvijā visas eksistējošās pilsētas:");
         Vector<String> atbildes1 = new Vector<String>();
-        atbildes1.add("1");
-        atbildes1.add("2");
-        atbildes1.add("3");
-        atbildes1.add("4");
+        atbildes1.add("Liepāja");
+        atbildes1.add("Oslo");
+        atbildes1.add("Rīga");
+        atbildes1.add("Warsaw");
         atbildes.add(atbildes1);
         Vector<String> pareizasAtb1 = new Vector<String>();
-        pareizasAtb1.add("a");
-        pareizasAtb1.add("c");
+        pareizasAtb1.add("Liepāja");
+        pareizasAtb1.add("Rīga");
         pareizasAtb.add(pareizasAtb1);
 
         
-        jautajumi.add("bd 2. jautajums");
+        jautajumi.add("Atzīmē latviešu vārdus:");
         Vector<String> atbildes2 = new Vector<String>();
-        atbildes2.add("1");
-        atbildes2.add("2");
-        atbildes2.add("3");
-        atbildes2.add("4");
+        atbildes2.add("John");
+        atbildes2.add("Alberts");
+        atbildes2.add("Muhammed");
+        atbildes2.add("Jānis");
         atbildes.add(atbildes2);
         Vector<String> pareizasAtb2 = new Vector<String>();
-        pareizasAtb2.add("b");
-        pareizasAtb2.add("d");
+        pareizasAtb2.add("Alberts");
+        pareizasAtb2.add("Jānis");
         pareizasAtb.add(pareizasAtb2);
         
         
@@ -122,7 +123,7 @@ public class JautMenu extends JFrame {
 		JButton btnIesniegt = new JButton("Iesniegt");
 		btnIesniegt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//.......
+				// ...... parAtb();
 			}
 		});
 		btnIesniegt.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -149,5 +150,24 @@ public class JautMenu extends JFrame {
 		Image BackImage2 = new ImageIcon(this.getClass().getResource("/resources/background2.png")).getImage();
 		background.setIcon(new ImageIcon(BackImage2));
 		contentPane.add(background);
+		
+		raditJaut();
+    }
+	
+	private void raditJaut() {
+        if (jautIndex < jautajumi.size()) {
+            JautLabel.setText(jautajumi.get(jautIndex));
+            Vector<String> atbildesJaut = atbildes.get(jautIndex);
+            if (atbildesJaut.size() == 4) {
+                atbVar1.setText(atbildesJaut.get(0));
+                atbVar2.setText(atbildesJaut.get(1));
+                atbVar3.setText(atbildesJaut.get(2));
+                atbVar4.setText(atbildesJaut.get(3));
+            } else {
+                System.out.println("Kļūda jautājumam ar indeksu: " + jautIndex);
+            }
+        } else {
+            System.out.println("Jautājumi ir beigušies!");
+        }
     }
 }
