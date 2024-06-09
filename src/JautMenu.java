@@ -20,9 +20,11 @@ public class JautMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private int jautIndex = 0;
+	private int PareiziArPirmo = 0;
 	private Vector<String> jautajumi = new Vector<String>();
     private Vector<Vector<String>> atbildes = new Vector<Vector<String>>();
     private Vector<Vector<String>> pareizasAtb = new Vector<Vector<String>>();
+    private Vector<Integer> NepareizArPirmo;
     
     private JLabel JautSkLabel;
     private JLabel JautLabel;
@@ -60,6 +62,10 @@ public class JautMenu extends JFrame {
 		jautajumi = Tests.getJautajumi();
 		atbildes = Tests.getAtbildes();
 		pareizasAtb = Tests.getPareizasAtb();
+		NepareizArPirmo = new Vector<Integer>(jautajumi.size());
+		for (int i = 0; i < jautajumi.size(); i++) {
+			NepareizArPirmo.add(0);
+		}
         
 		JautSkLabel = new JLabel("_. Jautājums");
 		JautSkLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -177,6 +183,9 @@ public class JautMenu extends JFrame {
         }
 
         if (pareizi) {
+        	if(NepareizArPirmo.get(jautIndex) == 0) {
+        		PareiziArPirmo++;
+        	}
             //System.out.println("Pareizi!");
             jautIndex++;
             NepareiziLabel.setVisible(false);
@@ -190,8 +199,10 @@ public class JautMenu extends JFrame {
                 raditJaut();
             } else {
                 //System.out.println("Jautājumi ir beigušies!");
+            	System.out.println("Pareizi ar pirmo reizi atbildētie jautājumi: " + PareiziArPirmo);
             }
         } else {
+        	NepareizArPirmo.set(jautIndex, NepareizArPirmo.get(jautIndex) + 1);
         	NepareiziLabel.setVisible(true);
             //System.out.println("Nepareizi!");
         }

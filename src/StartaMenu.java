@@ -56,7 +56,6 @@ public class StartaMenu extends JFrame {
 		contentPane.add(VardaTextbox);
 		VardaTextbox.setColumns(10);
 		
-		
 		JLabel ErrorLabel = new JLabel("Ievadītais vārds ir pārāk īss vai garšs!");
 		ErrorLabel.setForeground(new Color(255, 0, 0));
 		ErrorLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,7 +68,7 @@ public class StartaMenu extends JFrame {
 		SaktButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(VardaTextbox.getText().length() >=3 && VardaTextbox.getText().length() <= 16) {
+				if(VardaTextbox.getText().length() >= 3 && VardaTextbox.getText().length() <= 16) {
 					JautMenu sakumaFrame = new JautMenu();
 					sakumaFrame.setVisible(true); 
 					StartaMenu.this.dispose();
@@ -88,7 +87,6 @@ public class StartaMenu extends JFrame {
 		AutorsLabel.setFont(new Font("Segoe UI", Font.ITALIC, 16));
 		AutorsLabel.setBounds(522, 377, 102, 23);
 		contentPane.add(AutorsLabel);
-		Image BackImage = new ImageIcon(this.getClass().getResource("/resources/background.png")).getImage();
 		
 		JLabel IerakstietLabel = new JLabel("Ierakstiet savu vārdu");
 		IerakstietLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -97,6 +95,7 @@ public class StartaMenu extends JFrame {
 		contentPane.add(IerakstietLabel);
 		
 		JLabel Background = new JLabel("");
+		Image BackImage = new ImageIcon(this.getClass().getResource("/resources/background.png")).getImage();
 		Background.setIcon(new ImageIcon(BackImage));
 		Background.setBounds(0, 0, 634, 411);
 		contentPane.add(Background);
