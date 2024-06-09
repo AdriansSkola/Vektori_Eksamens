@@ -1,20 +1,19 @@
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
-import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
 
 public class JautMenu extends JFrame {
 
@@ -53,33 +52,13 @@ public class JautMenu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
-        
 		
-        jautajumi.add("Atzīmē Latvijā visas eksistējošās pilsētas:");
-        Vector<String> atbildes1 = new Vector<String>();
-        atbildes1.add("Liepāja");
-        atbildes1.add("Oslo");
-        atbildes1.add("Rīga");
-        atbildes1.add("Warsaw");
-        atbildes.add(atbildes1);
-        Vector<String> pareizasAtb1 = new Vector<String>();
-        pareizasAtb1.add("Liepāja");
-        pareizasAtb1.add("Rīga");
-        pareizasAtb.add(pareizasAtb1);
-
-        
-        jautajumi.add("Atzīmē latviešu vārdus:");
-        Vector<String> atbildes2 = new Vector<String>();
-        atbildes2.add("John");
-        atbildes2.add("Alberts");
-        atbildes2.add("Muhammed");
-        atbildes2.add("Jānis");
-        atbildes.add(atbildes2);
-        Vector<String> pareizasAtb2 = new Vector<String>();
-        pareizasAtb2.add("Alberts");
-        pareizasAtb2.add("Jānis");
-        pareizasAtb.add(pareizasAtb2);
-        
+		Tests tests = new Tests();
+		tests.Jautajumi();
+		
+		jautajumi = Tests.getJautajumi();
+		atbildes = Tests.getAtbildes();
+		pareizasAtb = Tests.getPareizasAtb();
         
 		JLabel JautSkLabel = new JLabel("_. Jautājums");
 		JautSkLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -123,7 +102,7 @@ public class JautMenu extends JFrame {
 		JButton btnIesniegt = new JButton("Iesniegt");
 		btnIesniegt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// ...... parAtb();
+				parAtb();
 			}
 		});
 		btnIesniegt.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -168,6 +147,35 @@ public class JautMenu extends JFrame {
             }
         } else {
             System.out.println("Jautājumi ir beigušies!");
+        }
+    }
+	
+	private void parAtb() {
+        Vector<String> pareizasAtbildesJaut = pareizasAtb.get(jautIndex);
+        Vector<JCheckBox> CheckBox = new Vector<JCheckBox>();
+        CheckBox.add(atbVar1);
+        CheckBox.add(atbVar2);
+        CheckBox.add(atbVar3);
+        CheckBox.add(atbVar4);
+
+        boolean pareizi = true;
+        for (int i = 0; i < CheckBox.size(); i++) {
+            if (CheckBox.get(i).isSelected() != pareizasAtbildesJaut.contains(CheckBox.get(i).getText())) {
+                pareizi = false;
+                break;
+            }
+        }
+
+        if (pareizi) {
+            System.out.println("Pareizi!");
+            jautIndex++;
+            if (jautIndex < jautajumi.size()) {
+                raditJaut();
+            } else {
+                System.out.println("Jautājumi ir beigušies!");
+            }
+        } else {
+            System.out.println("Nepareizi!");
         }
     }
 }
