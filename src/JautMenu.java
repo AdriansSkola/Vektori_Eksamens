@@ -30,6 +30,7 @@ public class JautMenu extends JFrame {
     private JCheckBox atbVar2;
     private JCheckBox atbVar3;
     private JCheckBox atbVar4;
+    private JLabel NepareiziLabel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -123,10 +124,18 @@ public class JautMenu extends JFrame {
 		notiritBox.setBackground(Color.WHITE);
 		notiritBox.setBounds(25, 349, 158, 40);
 		contentPane.add(notiritBox);
+		Image BackImage2 = new ImageIcon(this.getClass().getResource("/resources/background2.png")).getImage();
+		
+		NepareiziLabel = new JLabel("Nepareizi! Mēģiniet vēlreiz!");
+		NepareiziLabel.setForeground(new Color(255, 0, 0));
+		NepareiziLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		NepareiziLabel.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		NepareiziLabel.setBounds(25, 288, 243, 23);
+		NepareiziLabel.setVisible(false);
+		contentPane.add(NepareiziLabel);
 		
 		JLabel background = new JLabel("");
 		background.setBounds(0, 0, 634, 411);
-		Image BackImage2 = new ImageIcon(this.getClass().getResource("/resources/background2.png")).getImage();
 		background.setIcon(new ImageIcon(BackImage2));
 		contentPane.add(background);
 		
@@ -144,10 +153,10 @@ public class JautMenu extends JFrame {
                 atbVar3.setText(atbildesJaut.get(2));
                 atbVar4.setText(atbildesJaut.get(3));
             } else {
-                System.out.println("Kļūda jautājumam ar indeksu: " + jautIndex);
+                //System.out.println("Kļūda jautājumam ar indeksu: " + jautIndex);
             }
         } else {
-            System.out.println("Jautājumi ir beigušies!");
+            //System.out.println("Jautājumi ir beigušies!");
         }
     }
 	
@@ -168,8 +177,9 @@ public class JautMenu extends JFrame {
         }
 
         if (pareizi) {
-            System.out.println("Pareizi!");
+            //System.out.println("Pareizi!");
             jautIndex++;
+            NepareiziLabel.setVisible(false);
             
             atbVar1.setSelected(false);
 			atbVar2.setSelected(false);
@@ -179,10 +189,11 @@ public class JautMenu extends JFrame {
             if (jautIndex < jautajumi.size()) {
                 raditJaut();
             } else {
-                System.out.println("Jautājumi ir beigušies!");
+                //System.out.println("Jautājumi ir beigušies!");
             }
         } else {
-            System.out.println("Nepareizi!");
+        	NepareiziLabel.setVisible(true);
+            //System.out.println("Nepareizi!");
         }
     }
 }

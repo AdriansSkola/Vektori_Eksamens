@@ -56,6 +56,15 @@ public class StartaMenu extends JFrame {
 		contentPane.add(VardaTextbox);
 		VardaTextbox.setColumns(10);
 		
+		
+		JLabel ErrorLabel = new JLabel("Ievadītais vārds ir pārāk īss vai garšs!");
+		ErrorLabel.setForeground(new Color(255, 0, 0));
+		ErrorLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		ErrorLabel.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 14));
+		ErrorLabel.setBounds(199, 136, 251, 23);
+		ErrorLabel.setVisible(false);
+		contentPane.add(ErrorLabel);
+		
 		JButton SaktButton = new JButton("Sākt testu");
 		SaktButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -65,7 +74,8 @@ public class StartaMenu extends JFrame {
 					sakumaFrame.setVisible(true); 
 					StartaMenu.this.dispose();
 				} else {
-					System.out.println("Ievadītais vārds ir pārāk īss vai garšs!");
+					ErrorLabel.setVisible(true);
+					//System.out.println("Ievadītais vārds ir pārāk īss vai garšs!");
 				}
 			}
 		});
@@ -74,17 +84,17 @@ public class StartaMenu extends JFrame {
 		SaktButton.setBounds(269, 224, 100, 40);
 		contentPane.add(SaktButton);
 		
-		JLabel lblAdriansilders = new JLabel("Adrians Šilders");
-		lblAdriansilders.setFont(new Font("Segoe UI", Font.ITALIC, 16));
-		lblAdriansilders.setBounds(522, 377, 102, 23);
-		contentPane.add(lblAdriansilders);
+		JLabel AutorsLabel = new JLabel("Adrians Šilders");
+		AutorsLabel.setFont(new Font("Segoe UI", Font.ITALIC, 16));
+		AutorsLabel.setBounds(522, 377, 102, 23);
+		contentPane.add(AutorsLabel);
 		Image BackImage = new ImageIcon(this.getClass().getResource("/resources/background.png")).getImage();
 		
-		JLabel lblIerakstietSavuVrdu = new JLabel("Ierakstiet savu vārdu");
-		lblIerakstietSavuVrdu.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIerakstietSavuVrdu.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 14));
-		lblIerakstietSavuVrdu.setBounds(211, 158, 217, 23);
-		contentPane.add(lblIerakstietSavuVrdu);
+		JLabel IerakstietLabel = new JLabel("Ierakstiet savu vārdu");
+		IerakstietLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		IerakstietLabel.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 14));
+		IerakstietLabel.setBounds(211, 158, 217, 23);
+		contentPane.add(IerakstietLabel);
 		
 		JLabel Background = new JLabel("");
 		Background.setIcon(new ImageIcon(BackImage));
