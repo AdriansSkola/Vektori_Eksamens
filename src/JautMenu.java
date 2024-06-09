@@ -56,7 +56,6 @@ public class JautMenu extends JFrame {
 		
 		Tests tests = new Tests();
 		tests.Jautajumi();
-		
 		jautajumi = Tests.getJautajumi();
 		atbildes = Tests.getAtbildes();
 		pareizasAtb = Tests.getPareizasAtb();
@@ -171,6 +170,12 @@ public class JautMenu extends JFrame {
         if (pareizi) {
             System.out.println("Pareizi!");
             jautIndex++;
+            
+            atbVar1.setSelected(false);
+			atbVar2.setSelected(false);
+			atbVar3.setSelected(false);
+			atbVar4.setSelected(false);
+			
             if (jautIndex < jautajumi.size()) {
                 raditJaut();
             } else {
