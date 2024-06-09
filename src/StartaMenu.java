@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class StartaMenu extends JFrame {
 
@@ -54,6 +56,13 @@ public class StartaMenu extends JFrame {
 		VardaTextbox.setColumns(10);
 		
 		JButton SaktButton = new JButton("Sākt testu");
+		SaktButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JautMenu sakumaFrame = new JautMenu();
+				sakumaFrame.setVisible(true); 
+				StartaMenu.this.dispose();
+			}
+		});
 		SaktButton.setBackground(new Color(255, 255, 255));
 		SaktButton.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		SaktButton.setBounds(269, 224, 100, 40);
