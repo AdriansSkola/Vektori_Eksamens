@@ -154,7 +154,7 @@ public class JautMenu extends JFrame {
 		VirsrakstsLabel = new JLabel("Paldies _!");
 		VirsrakstsLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		VirsrakstsLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
-		VirsrakstsLabel.setBounds(211, 11, 217, 43);
+		VirsrakstsLabel.setBounds(130, 11, 386, 43);
 		VirsrakstsLabel.setVisible(false);
 		contentPane.add(VirsrakstsLabel);
 		
@@ -185,6 +185,10 @@ public class JautMenu extends JFrame {
 		contentPane.add(background);
 		
 		raditJaut();
+    }
+	
+	public void setVards(String vards) {
+        VirsrakstsLabel.setText("Paldies " + vards + "!");
     }
 	
 	private void raditJaut() {

@@ -46,8 +46,8 @@ public class StartaMenu extends JFrame {
 		
 		JLabel VirsrakstsLabel = new JLabel("Tests par vektoriem");
 		VirsrakstsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		VirsrakstsLabel.setFont(new Font("Segoe UI", Font.BOLD, 22));
-		VirsrakstsLabel.setBounds(211, 32, 217, 23);
+		VirsrakstsLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
+		VirsrakstsLabel.setBounds(199, 34, 251, 40);
 		contentPane.add(VirsrakstsLabel);
 		
 		VardaTextbox = new JTextField();
@@ -67,10 +67,12 @@ public class StartaMenu extends JFrame {
 		JButton SaktButton = new JButton("Sākt testu");
 		SaktButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String vards = VardaTextbox.getText();
 				
 				if(VardaTextbox.getText().length() >= 3 && VardaTextbox.getText().length() <= 16) {
-					JautMenu sakumaFrame = new JautMenu();
-					sakumaFrame.setVisible(true); 
+					JautMenu jautMenu = new JautMenu();
+					jautMenu.setVards(vards);
+					jautMenu.setVisible(true); 
 					StartaMenu.this.dispose();
 				} else {
 					ErrorLabel.setVisible(true);
