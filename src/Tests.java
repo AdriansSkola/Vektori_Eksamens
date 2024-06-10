@@ -139,7 +139,7 @@ public class Tests {
 	    atbildes.add(atbildes10);
 	    Vector<String> pareizasAtb10 = new Vector<String>();
 	    pareizasAtb10.add("a.size();");
-	    pareizasAtb10.add("Nav savādāku veidu.");
+	    pareizasAtb10.add("Nav savādāku veidi.");
 	    pareizasAtb.add(pareizasAtb10);
 	}
 	

@@ -288,6 +288,30 @@ public class JautMenu extends JFrame {
             	Image BackImage2 = new ImageIcon(this.getClass().getResource("/resources/background3.png")).getImage();
             	background.setIcon(new ImageIcon(BackImage2));
             	
+            	switch (PareiziArPirmo) {
+            	
+            	case 1:
+            	case 2:
+            	case 3:
+            	case 4:
+            		Image bad = new ImageIcon(this.getClass().getResource("/resources/bad.png")).getImage();
+            		Emoji.setIcon(new ImageIcon(bad));
+            		break;
+            	case 5:
+            	case 6:
+            	case 7:
+            		Image normal = new ImageIcon(this.getClass().getResource("/resources/normal.png")).getImage();
+            		Emoji.setIcon(new ImageIcon(normal));
+            		break;
+            	
+            	case 8:
+            	case 9:
+            	case 10:
+            		Image good = new ImageIcon(this.getClass().getResource("/resources/good.png")).getImage();
+            		Emoji.setIcon(new ImageIcon(good));
+            		break;
+            	}
+            	
             }
         } else {
         	NepareizArPirmo.set(jautIndex, NepareizArPirmo.get(jautIndex) + 1);
