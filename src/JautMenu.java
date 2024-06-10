@@ -92,24 +92,28 @@ public class JautMenu extends JFrame {
 		atbVar1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		atbVar1.setBounds(25, 140, 320, 23);
 		atbVar1.setContentAreaFilled(false);
+		atbVar1.setFocusPainted(false);
 		contentPane.add(atbVar1);
 		
 		atbVar2 = new JCheckBox("2. atbilžu variants");
 		atbVar2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		atbVar2.setBounds(25, 175, 320, 23);
 		atbVar2.setContentAreaFilled(false);
+		atbVar2.setFocusPainted(false);
 		contentPane.add(atbVar2);
 		
 		atbVar3 = new JCheckBox("3. atbilžu variants");
 		atbVar3.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		atbVar3.setBounds(25, 210, 320, 23);
 		atbVar3.setContentAreaFilled(false);
+		atbVar3.setFocusPainted(false);
 		contentPane.add(atbVar3);
 		
 		atbVar4 = new JCheckBox("4. atbilžu variants");
 		atbVar4.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		atbVar4.setBounds(25, 245, 320, 23);
 		atbVar4.setContentAreaFilled(false);
+		atbVar4.setFocusPainted(false);
 		contentPane.add(atbVar4);
 		
 		lblNewLabel = new JLabel("");
@@ -125,6 +129,7 @@ public class JautMenu extends JFrame {
 		btnIesniegt.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnIesniegt.setBackground(Color.WHITE);
 		btnIesniegt.setBounds(512, 349, 100, 40);
+		btnIesniegt.setFocusPainted(false);
 		contentPane.add(btnIesniegt);
 		
 		notiritBox = new JButton("Notīrīt Atķeksētos");
@@ -139,6 +144,7 @@ public class JautMenu extends JFrame {
 		notiritBox.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		notiritBox.setBackground(Color.WHITE);
 		notiritBox.setBounds(25, 349, 158, 40);
+		notiritBox.setFocusPainted(false);
 		contentPane.add(notiritBox);
 		
 		NepareiziLabel = new JLabel("Nepareizi! Mēģiniet vēlreiz!");

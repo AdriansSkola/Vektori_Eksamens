@@ -83,11 +83,14 @@ public class StartaMenu extends JFrame {
 		SaktButton.setBackground(new Color(255, 255, 255));
 		SaktButton.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		SaktButton.setBounds(269, 224, 100, 40);
+		SaktButton.setFocusPainted(false);
 		contentPane.add(SaktButton);
 		
 		JLabel AutorsLabel = new JLabel("Adrians Šilders");
+		AutorsLabel.setVerticalAlignment(SwingConstants.BOTTOM);
+		AutorsLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		AutorsLabel.setFont(new Font("Segoe UI", Font.ITALIC, 16));
-		AutorsLabel.setBounds(522, 377, 102, 23);
+		AutorsLabel.setBounds(514, 377, 110, 23);
 		contentPane.add(AutorsLabel);
 		
 		JLabel IerakstietLabel = new JLabel("Ierakstiet savu vārdu");
@@ -95,9 +98,15 @@ public class StartaMenu extends JFrame {
 		IerakstietLabel.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 14));
 		IerakstietLabel.setBounds(211, 158, 217, 23);
 		contentPane.add(IerakstietLabel);
+		Image BackImage = new ImageIcon(this.getClass().getResource("/resources/background.png")).getImage();
+		
+		JLabel AutorsLabel_1 = new JLabel("2024");
+		AutorsLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		AutorsLabel_1.setFont(new Font("Segoe UI", Font.ITALIC, 16));
+		AutorsLabel_1.setBounds(524, 353, 100, 23);
+		contentPane.add(AutorsLabel_1);
 		
 		JLabel Background = new JLabel("");
-		Image BackImage = new ImageIcon(this.getClass().getResource("/resources/background.png")).getImage();
 		Background.setIcon(new ImageIcon(BackImage));
 		Background.setBounds(0, 0, 634, 411);
 		contentPane.add(Background);
