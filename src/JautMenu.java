@@ -34,6 +34,7 @@ public class JautMenu extends JFrame {
     private JCheckBox atbVar4;
     private JLabel NepareiziLabel;
     private JLabel background;
+    private JLabel lblNewLabel;
     
     private JButton btnIesniegt;
     private JButton notiritBox;
@@ -89,30 +90,30 @@ public class JautMenu extends JFrame {
 		
 		atbVar1 = new JCheckBox("1. atbilžu variants");
 		atbVar1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		atbVar1.setBounds(25, 140, 180, 23);
+		atbVar1.setBounds(25, 140, 320, 23);
 		atbVar1.setContentAreaFilled(false);
 		contentPane.add(atbVar1);
 		
 		atbVar2 = new JCheckBox("2. atbilžu variants");
 		atbVar2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		atbVar2.setBounds(25, 175, 180, 23);
+		atbVar2.setBounds(25, 175, 320, 23);
 		atbVar2.setContentAreaFilled(false);
 		contentPane.add(atbVar2);
 		
 		atbVar3 = new JCheckBox("3. atbilžu variants");
 		atbVar3.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		atbVar3.setBounds(25, 210, 180, 23);
+		atbVar3.setBounds(25, 210, 320, 23);
 		atbVar3.setContentAreaFilled(false);
 		contentPane.add(atbVar3);
 		
 		atbVar4 = new JCheckBox("4. atbilžu variants");
 		atbVar4.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		atbVar4.setBounds(25, 245, 180, 23);
+		atbVar4.setBounds(25, 245, 320, 23);
 		atbVar4.setContentAreaFilled(false);
 		contentPane.add(atbVar4);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(291, 126, 225, 185);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(278, 119, 330, 185);
 		contentPane.add(lblNewLabel);
 		
 		btnIesniegt = new JButton("Iesniegt");
@@ -185,6 +186,8 @@ public class JautMenu extends JFrame {
 		contentPane.add(background);
 		
 		raditJaut();
+		
+		
     }
 	
 	public void setVards(String vards) {
@@ -204,6 +207,26 @@ public class JautMenu extends JFrame {
             } else {
                 //System.out.println("Kļūda jautājumam ar indeksu: " + jautIndex);
             }
+            
+        	switch (jautIndex + 1) {
+        	case 4:
+        		Image Jautajums4 = new ImageIcon(this.getClass().getResource("/resources/jautajums4.png")).getImage();
+        		lblNewLabel.setIcon(new ImageIcon(Jautajums4));
+        		break;
+        	case 5:
+        		Image Jautajums5 = new ImageIcon(this.getClass().getResource("/resources/jautajums5.png")).getImage();
+        		lblNewLabel.setIcon(new ImageIcon(Jautajums5));
+        		break;
+        		
+        	case 7:
+        		Image Jautajums7 = new ImageIcon(this.getClass().getResource("/resources/jautajums7.png")).getImage();
+        		lblNewLabel.setIcon(new ImageIcon(Jautajums7));
+        		break;
+        		
+        	default:
+                lblNewLabel.setIcon(null);
+                break;
+        	}
         } else {
             //System.out.println("Jautājumi ir beigušies!");
         }
@@ -242,7 +265,7 @@ public class JautMenu extends JFrame {
                 raditJaut();
             } else {
                 //System.out.println("Jautājumi ir beigušies!");
-            	System.out.println("Pareizi ar pirmo reizi atbildētie jautājumi: " + PareiziArPirmo);
+            	//System.out.println("Pareizi ar pirmo reizi atbildētie jautājumi: " + PareiziArPirmo);
             	pareizieLabel.setText(PareiziArPirmo + " / 10");
             	
             	//JautMenu
@@ -255,6 +278,7 @@ public class JautMenu extends JFrame {
             	NepareiziLabel.setVisible(false);
             	btnIesniegt.setVisible(false);
             	notiritBox.setVisible(false);
+            	lblNewLabel.setIcon(null);
             	
             	// Rezultati
             	pareizieLabel.setVisible(true);
