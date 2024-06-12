@@ -3,7 +3,6 @@ Java programma, kas realizē testu jautājumus par tēmu vektori.
 
 - Mazs testiņš par java vektora tēmu.
 - Testā ir vairākas pareizās atbildes, kā arī iespēja notīrīt ieķeksētos atbilžu variantus.
-- Tēlu un tēlam drēbes var mainīt platumu un garumu ar slideriem.
 
 ### **Šeit var redzēt programmas sākumlapu**
 ![StartaMenu](https://github.com/AdriansSkola/Vektori_Eksamens/assets/165994360/8b395300-8533-4c4e-b622-ef572cb618b2)
